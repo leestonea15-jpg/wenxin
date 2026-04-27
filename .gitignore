@@ -1,0 +1,52 @@
+# Node
+node_modules/
+dist/
+.env.local
+.env.*.local
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+.pytest_cache/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Supabase
+.supabase/
+
+# Build
+build/
+
+# Worktrees
+.worktrees/
+worktrees/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Claude
+.claude/
+
+# Evaluation reports
+backend/evaluation_report.json
+evaluation_report.json
+
+# Sensitive files
+*.env
+!*.env.example

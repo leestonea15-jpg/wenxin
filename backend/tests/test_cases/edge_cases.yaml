@@ -1,0 +1,33 @@
+name: 边界情况测试
+description: 测试极端情况和边界条件
+
+test_cases:
+  - id: edge_1
+    name: 很短的问题
+    question: 好吗
+    stick:
+      id: 1
+      level: 上上签
+      title: 姜太公遇文王
+      poem: 时来时去自如通，万水千山总是通。忽遇太君来相引，那时相引得亨通。
+      story: 姜太公钓鱼等待周文王，后被重用
+      meaning: 时来运转，贵人相助，事业有成
+
+  - id: edge_2
+    name: 很长的问题
+    question: 我最近有很多事情要处理，工作上有新项目要启动，生活上家里也有些事情需要操心，感情上和对象也有一些矛盾，我感到压力很大，想请您帮我看看整体的运势如何，有没有什么需要注意的地方，或者有什么建议？
+    stick:
+      id: 23
+      level: 中签
+      title: 韩文公遇雪
+      poem: 时运未来莫强求，且把尘心暂且收。忽有贵人来相引，那时相引上瀛洲。
+      story: 韩愈被贬，途中遇雪
+      meaning: 暂时困境，需要等待时机
+
+  - id: edge_3
+    name: 英文问题
+    question: What will my future be like?
+    stick:
+      id: 1
+      level: 上上签
+      title: 姜太公遇文王

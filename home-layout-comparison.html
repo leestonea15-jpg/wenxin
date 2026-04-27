@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页布局方案对比</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-3xl font-bold text-center mb-8">首页布局方案对比</h1>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+            <!-- 方案A：紧凑一屏布局（推荐） -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="bg-green-100 px-4 py-2 border-b">
+                    <span class="text-green-800 font-semibold">方案A：紧凑一屏布局（推荐）</span>
+                </div>
+                <div class="relative" style="height: 600px; overflow: hidden;">
+
+                    <!-- 模拟顶部导航 -->
+                    <div class="bg-white/80 backdrop-blur border-b border-gray-200 h-14 flex items-center px-6 justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-gray-200 rounded"></div>
+                            <span class="font-serif font-semibold">问心</span>
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="px-3 py-1 text-sm border rounded">登录</button>
+                            <button class="px-3 py-1 text-sm bg-gray-900 text-white rounded">注册</button>
+                        </div>
+                    </div>
+
+                    <!-- Hero区域（紧凑） -->
+                    <div class="px-6 pt-8 pb-4 text-center">
+                        <h1 class="text-3xl font-serif font-bold text-gray-800 mb-3">问心</h1>
+                        <p class="text-gray-600 mb-1">每一次对命运的探索和好奇，都源自于内心对自我了解的渴望。</p>
+                    </div>
+
+                    <!-- 卡片区域（上移） -->
+                    <div class="px-6">
+                        <h2 class="text-xl font-semibold text-center mb-4">选择模式</h2>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-gradient-to-br from-yellow-50 to-amber-100 rounded-xl p-5 border-2 border-transparent hover:border-gray-300 cursor-pointer">
+                                <div class="text-3xl mb-2">⚡</div>
+                                <h3 class="font-semibold mb-1">每日速测</h3>
+                                <p class="text-sm text-gray-600">金钱卦、掷圣杯</p>
+                            </div>
+                            <div class="bg-gray-50 rounded-xl p-5 border-2 border-gray-200 opacity-60">
+                                <div class="text-3xl mb-2">🏮</div>
+                                <h3 class="font-semibold mb-1">观音灵签</h3>
+                                <p class="text-xs text-gray-500">即将推出</p>
+                            </div>
+                            <div class="bg-gray-50 rounded-xl p-5 border-2 border-gray-200 opacity-60">
+                                <div class="text-3xl mb-2">✨</div>
+                                <h3 class="font-semibold mb-1">塔罗牌</h3>
+                                <p class="text-xs text-gray-500">即将推出</p>
+                            </div>
+                            <div class="bg-gray-50 rounded-xl p-5 border-2 border-gray-200 opacity-60">
+                                <div class="text-3xl mb-2">📜</div>
+                                <h3 class="font-semibold mb-1">八字排盘</h3>
+                                <p class="text-xs text-gray-500">即将推出</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 一屏标记 -->
+                    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-green-500 text-white px-3 py-1 rounded-full text-sm">
+                        ✓ 一屏展示
+                    </div>
+                </div>
+            </div>
+
+            <!-- 方案B：当前布局（需要滚动） -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="bg-red-100 px-4 py-2 border-b">
+                    <span class="text-red-800 font-semibold">方案B：当前布局（需要滚动）</span>
+                </div>
+                <div class="relative" style="height: 600px; overflow-y: scroll;">
+
+                    <!-- 模拟顶部导航 -->
+                    <div class="bg-white/80 backdrop-blur border-b border-gray-200 h-14 flex items-center px-6 justify-between sticky top-0 z-10">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center">
+                                <span class="text-yellow-700 font-serif">问</span>
+                            </div>
+                            <span class="font-serif font-semibold">问心</span>
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="px-3 py-1 text-sm border rounded">登录</button>
+                            <button class="px-3 py-1 text-sm bg-gray-900 text-white rounded">注册</button>
+                        </div>
+                    </div>
+
+                    <!-- Hero区域（大间距） -->
+                    <div class="px-6 pt-20 pb-16 text-center">
+                        <div class="w-24 h-24 mx-auto mb-4 bg-yellow-100 rounded-full flex items-center justify-center">
+                            <span class="text-4xl text-yellow-700 font-serif">问</span>
+                        </div>
+                        <h1 class="text-5xl font-serif font-bold text-gray-800 mb-6">问心</h1>
+                        <p class="text-xl text-gray-600 max-w-lg mx-auto mb-4">每一次对命运的探索和好奇，都源自于内心对自我了解的渴望。</p>
+                        <p class="text-gray-500 mb-8">命理探索，手势互动——探索命运的新方式。</p>
+                    </div>
+
+                    <!-- 卡片区域 -->
+                    <div class="px-6 pb-20">
+                        <h2 class="text-xl font-semibold text-center mb-6">选择模式</h2>
+                        <p class="text-center text-gray-500 mb-4">多种测算方式，满足你不同的需求</p>
+                        <div class="grid grid-cols-2 gap-8">
+                            <div class="bg-gradient-to-br from-yellow-50 to-amber-100 rounded-xl p-6 border-2 border-transparent hover:border-gray-300 cursor-pointer">
+                                <div class="text-4xl mb-3">⚡</div>
+                                <h3 class="font-semibold text-lg mb-2">每日速测</h3>
+                                <p class="text-sm text-gray-600">一分钟速测问吉凶，金钱卦、掷圣杯两种玩法。</p>
+                            </div>
+                            <div class="bg-gray-50 rounded-xl p-6 border-2 border-gray-200 opacity-60">
+                                <div class="text-4xl mb-3">🏮</div>
+                                <h3 class="font-semibold text-lg mb-2">观音灵签</h3>
+                                <p class="text-sm text-gray-500">虔诚祈求，观音赐签。</p>
+                                <p class="text-xs text-gray-400 mt-2">即将推出</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 需要滚动标记 -->
+                    <div class="sticky bottom-4 left-1/2 -translate-x-1/2 bg-red-500 text-white px-3 py-1 rounded-full text-sm inline-block">
+                        ↓ 需要滚动
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方案对比总结 -->
+        <div class="mt-8 bg-white rounded-xl p-6 shadow-lg">
+            <h2 class="text-xl font-bold mb-4">方案对比</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead>
+                        <tr class="border-b">
+                            <th class="text-left py-3 px-4">对比项</th>
+                            <th class="text-center py-3 px-4 bg-green-50">方案A（推荐）</th>
+                            <th class="text-center py-3 px-4">方案B（当前）</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b">
+                            <td class="py-3 px-4">Logo展示</td>
+                            <td class="text-center py-3 px-4">❌ 移除</td>
+                            <td class="text-center py-3 px-4">✅ 保留</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="py-3 px-4">Hero区域高度</td>
+                            <td class="text-center py-3 px-4">紧凑</td>
+                            <td class="text-center py-3 px-4">大间距</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="py-3 px-4">卡片可见性</td>
+                            <td class="text-center py-3 px-4 bg-green-50">✅ 一屏内可见</td>
+                            <td class="text-center py-3 px-4">❌ 需要滚动</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="py-3 px-4">用户体验</td>
+                            <td class="text-center py-3 px-4 bg-green-50">直接看到核心功能</td>
+                            <td class="text-center py-3 px-4">需要向下探索</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

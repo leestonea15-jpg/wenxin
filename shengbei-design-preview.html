@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圣杯设计方案对比</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #fff;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { text-align: center; margin-bottom: 10px; font-size: 2rem; }
+        .subtitle { text-align: center; color: #aaa; margin-bottom: 40px; }
+        .section { margin-bottom: 60px; }
+        .section-title { font-size: 1.5rem; margin-bottom: 24px; text-align: center; border-bottom: 2px solid #333; padding-bottom: 12px; }
+        .options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .option-card { background: rgba(255,255,255,0.08); border-radius: 16px; padding: 30px; text-align: center; border: 2px solid transparent; transition: all 0.3s; }
+        .option-card:hover { border-color: #4a9eff; transform: translateY(-5px); }
+        .option-card.recommended { border-color: #10b981; }
+        .option-badge { display: inline-block; padding: 4px 12px; background: #10b981; color: white; border-radius: 20px; font-size: 0.75rem; margin-bottom: 16px; }
+        .option-title { font-size: 1.25rem; margin-bottom: 20px; }
+        .preview-area { background: #fff; border-radius: 12px; padding: 40px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; min-height: 200px; }
+        .option-desc { color: #ccc; font-size: 0.9rem; line-height: 1.6; }
+        .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; text-align: left; }
+        .pros, .cons { background: rgba(0,0,0,0.2); border-radius: 8px; padding: 16px; }
+        .pros h4 { color: #10b981; margin-bottom: 8px; }
+        .cons h4 { color: #ef4444; margin-bottom: 8px; }
+        .pros ul, .cons ul { list-style: none; font-size: 0.85rem; }
+        .pros li::before { content: "✓ "; color: #10b981; }
+        .cons li::before { content: "✗ "; color: #ef4444; }
+
+        /* Camera preview styles */
+        .camera-preview {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            background: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .camera-feed {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #2d2d2d 25%, #333 25%, #333 50%, #2d2d2d 50%, #2d2d2d 75%, #333 75%);
+            background-size: 40px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1.2rem;
+        }
+        .camera-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+        }
+        .camera-center-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+        }
+        .hidden-camera {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1a 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .gesture-hint {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            text-align: center;
+        }
+        .gesture-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 设计方案对比</h1>
+        <p class="subtitle">选择最适合的设计方案</p>
+
+        <!-- 圣杯图标设计 -->
+        <div class="section">
+            <h2 class="section-title">方案一：圣杯图标重新设计</h2>
+            <div class="options-grid">
+                <!-- 选项A：当前设计 -->
+                <div class="option-card">
+                    <div class="option-title">A. 当前设计</div>
+                    <div class="preview-area">
+                        <svg viewBox="0 0 100 100" width="150" height="150">
+                            <defs>
+                                <linearGradient id="cupRedGradient1" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stopColor="#dc2626" />
+                                    <stop offset="100%" stopColor="#7f1d1d" />
+                                </linearGradient>
+                            </defs>
+                            <g transform="translate(20, 25)">
+                                <path d="M 0 25 Q 15 0 30 25 Q 15 30 0 25" fill="url(#cupRedGradient1)" stroke="#450a0a" strokeWidth="1.5"/>
+                            </g>
+                            <g transform="translate(50, 25)">
+                                <path d="M 0 25 Q 15 0 30 25 Q 15 30 0 25" fill="url(#cupRedGradient1)" stroke="#450a0a" strokeWidth="1.5" transform="scale(-1, 1) translate(-30, 0)"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <p class="option-desc">当前横版月牙设计，用户反馈像胸罩</p>
+                    <div class="pros-cons">
+                        <div class="cons">
+                            <h4>问题</h4>
+                            <ul>
+                                <li>造型不够传统</li>
+                                <li>易产生不当联想</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 选项B：竖版月牙尖相对（推荐） -->
+                <div class="option-card recommended">
+                    <div class="option-badge">推荐</div>
+                    <div class="option-title">B. 竖版月牙尖相对</div>
+                    <div class="preview-area">
+                        <svg viewBox="0 0 100 120" width="150" height="180">
+                            <defs>
+                                <linearGradient id="cupRedGradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stopColor="#dc2626" />
+                                    <stop offset="100%" stopColor="#7f1d1d" />
+                                </linearGradient>
+                            </defs>
+                            <!-- 左杯 - 竖版，月牙尖朝右 -->
+                            <g transform="translate(15, 10)">
+                                <path d="M 25 0 Q 0 25 25 50 Q 30 25 25 0" fill="url(#cupRedGradient2)" stroke="#450a0a" strokeWidth="1.5"/>
+                            </g>
+                            <!-- 右杯 - 竖版，月牙尖朝左 -->
+                            <g transform="translate(55, 10)">
+                                <path d="M 0 0 Q 25 25 0 50 Q -5 25 0 0" fill="url(#cupRedGradient2)" stroke="#450a0a" strokeWidth="1.5"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <p class="option-desc">传统圣杯样式，两个月牙竖起来，尖部相对</p>
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>优点</h4>
+                            <ul>
+                                <li>符合传统样式</li>
+                                <li>造型优雅</li>
+                                <li>不会产生误解</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 选项C：简化圣杯 -->
+                <div class="option-card">
+                    <div class="option-title">C. 传统杯型</div>
+                    <div class="preview-area">
+                        <svg viewBox="0 0 100 120" width="150" height="180">
+                            <defs>
+                                <linearGradient id="cupRedGradient3" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stopColor="#dc2626" />
+                                    <stop offset="100%" stopColor="#7f1d1d" />
+                                </linearGradient>
+                            </defs>
+                            <!-- 左杯 - 杯口朝上 -->
+                            <g transform="translate(10, 15)">
+                                <path d="M 0 5 L 10 0 L 20 5 L 15 45 Q 10 50 5 45 L 0 5" fill="url(#cupRedGradient3)" stroke="#450a0a" strokeWidth="1.5"/>
+                            </g>
+                            <!-- 右杯 - 杯口朝上 -->
+                            <g transform="translate(60, 15)">
+                                <path d="M 0 5 L 10 0 L 20 5 L 15 45 Q 10 50 5 45 L 0 5" fill="url(#cupRedGradient3)" stroke="#450a0a" strokeWidth="1.5"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <p class="option-desc">更像真实杯子的形状，杯口朝上</p>
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>优点</h4>
+                            <ul>
+                                <li>直观易懂</li>
+                                <li>接近实物</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>缺点</h4>
+                            <ul>
+                                <li>缺少月牙美感</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 摄像头显示方式 -->
+        <div class="section">
+            <h2 class="section-title">方案二：摄像头显示方式</h2>
+            <div class="options-grid">
+                <!-- 选项A：当前全屏显示 -->
+                <div class="option-card">
+                    <div class="option-title">A. 当前全屏显示</div>
+                    <div class="preview-area" style="padding: 0;">
+                        <div class="camera-preview">
+                            <div class="camera-feed">📷 摄像头画面（人像）</div>
+                            <div class="camera-overlay"></div>
+                            <div class="camera-center-icon">🏮</div>
+                        </div>
+                    </div>
+                    <p class="option-desc">全屏显示摄像头画面，用户能看到自己</p>
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>优点</h4>
+                            <ul>
+                                <li>反馈直观</li>
+                                <li>知道摄像头在工作</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>缺点</h4>
+                            <ul>
+                                <li>暴露隐私</li>
+                                <li>可能分散注意力</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 选项B：隐藏摄像头，仅显示UI（推荐） -->
+                <div class="option-card recommended">
+                    <div class="option-badge">推荐</div>
+                    <div class="option-title">B. 隐藏摄像头，仅显示UI</div>
+                    <div class="preview-area" style="padding: 0;">
+                        <div class="camera-preview hidden-camera">
+                            <div style="font-size: 5rem; margin-bottom: 20px;">🏮</div>
+                            <div style="font-size: 1.5rem; color: #fff;">请做「抛圣杯」手势</div>
+                            <div class="gesture-hint">
+                                <div class="gesture-icon">🖐️⬆️</div>
+                                <div style="color: #aaa; font-size: 0.9rem;">手抬起，快速向下再向上挥动</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="option-desc">摄像头静默工作，屏幕只显示圣杯和手势提示</p>
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>优点</h4>
+                            <ul>
+                                <li>保护隐私</li>
+                                <li>界面更美观</li>
+                                <li>专注于手势</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>缺点</h4>
+                            <ul>
+                                <li>需要其他方式确认摄像头工作</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 选项C：小窗口预览 -->
+                <div class="option-card">
+                    <div class="option-title">C. 小窗口预览</div>
+                    <div class="preview-area" style="padding: 0;">
+                        <div class="camera-preview hidden-camera">
+                            <div style="position: absolute; top: 20px; right: 20px; width: 120px; height: 90px; background: #333; border-radius: 8px; border: 2px solid #fff; display: flex; align-items: center; justify-content: center; color: #666; font-size: 0.8rem;">
+                                摄像头预览
+                            </div>
+                            <div style="font-size: 4rem; margin-bottom: 20px;">🏮</div>
+                            <div style="color: #aaa; font-size: 0.9rem;">手势识别中...</div>
+                        </div>
+                    </div>
+                    <p class="option-desc">角落小窗口显示摄像头画面，主界面隐藏</p>
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>优点</h4>
+                            <ul>
+                                <li>兼顾隐私和反馈</li>
+                                <li>可选择是否看自己</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>缺点</h4>
+                            <ul>
+                                <li>界面稍显复杂</li>
+                                <li>还是会看到自己</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 圣杯尺寸调整 -->
+        <div class="section">
+            <h2 class="section-title">方案三：手势测算页面圣杯尺寸</h2>
+            <div class="options-grid">
+                <div class="option-card">
+                    <div class="option-title">当前尺寸（200px）</div>
+                    <div class="preview-area">
+                        <svg viewBox="0 0 100 120" width="100" height="120">
+                            <defs>
+                                <linearGradient id="cupRedGradientSize1" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stopColor="#dc2626" />
+                                    <stop offset="100%" stopColor="#7f1d1d" />
+                                </linearGradient>
+                            </defs>
+                            <g transform="translate(15, 10)">
+                                <path d="M 25 0 Q 0 25 25 50 Q 30 25 25 0" fill="url(#cupRedGradientSize1)" stroke="#450a0a" strokeWidth="1.5"/>
+                            </g>
+                            <g transform="translate(55, 10)">
+                                <path d="M 0 0 Q 25 25 0 50 Q -5 25 0 0" fill="url(#cupRedGradientSize1)" stroke="#450a0a" strokeWidth="1.5"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <p class="option-desc">用户反馈偏小</p>
+                </div>
+                <div class="option-card recommended">
+                    <div class="option-badge">推荐</div>
+                    <div class="option-title">增大到 280-320px</div>
+                    <div class="preview-area">
+                        <svg viewBox="0 0 100 120" width="160" height="192">
+                            <defs>
+                                <linearGradient id="cupRedGradientSize2" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stopColor="#dc2626" />
+                                    <stop offset="100%" stopColor="#7f1d1d" />
+                                </linearGradient>
+                            </defs>
+                            <g transform="translate(15, 10)">
+                                <path d="M 25 0 Q 0 25 25 50 Q 30 25 25 0" fill="url(#cupRedGradientSize2)" stroke="#450a0a" strokeWidth="1.5"/>
+                            </g>
+                            <g transform="translate(55, 10)">
+                                <path d="M 0 0 Q 25 25 0 50 Q -5 25 0 0" fill="url(#cupRedGradientSize2)" stroke="#450a0a" strokeWidth="1.5"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <p class="option-desc">更醒目，视觉效果更好</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

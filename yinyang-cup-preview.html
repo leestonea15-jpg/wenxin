@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圣杯阴阳杯区分方案</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #fff;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { text-align: center; margin-bottom: 10px; font-size: 2rem; }
+        .subtitle { text-align: center; color: #aaa; margin-bottom: 40px; }
+        .section { margin-bottom: 60px; }
+        .section-title { font-size: 1.5rem; margin-bottom: 24px; text-align: center; border-bottom: 2px solid #333; padding-bottom: 12px; }
+        .options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .option-card { background: rgba(255,255,255,0.08); border-radius: 16px; padding: 30px; text-align: center; border: 2px solid transparent; transition: all 0.3s; }
+        .option-card:hover { border-color: #4a9eff; transform: translateY(-5px); }
+        .option-card.recommended { border-color: #10b981; }
+        .option-badge { display: inline-block; padding: 4px 12px; background: #10b981; color: white; border-radius: 20px; font-size: 0.75rem; margin-bottom: 16px; }
+        .option-title { font-size: 1.25rem; margin-bottom: 20px; }
+        .preview-area { background: #fff; border-radius: 12px; padding: 40px 20px; margin-bottom: 20px; }
+        .cups-row { display: flex; justify-content: center; gap: 40px; align-items: flex-end; }
+        .cup-group { text-align: center; }
+        .cup-label { margin-top: 12px; font-size: 0.9rem; color: #333; font-weight: 600; }
+        .option-desc { color: #ccc; font-size: 0.9rem; line-height: 1.6; text-align: left; margin-top: 16px; }
+        .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; text-align: left; }
+        .pros, .cons { background: rgba(0,0,0,0.2); border-radius: 8px; padding: 16px; }
+        .pros h4 { color: #10b981; margin-bottom: 8px; }
+        .cons h4 { color: #ef4444; margin-bottom: 8px; }
+        .pros ul, .cons ul { list-style: none; font-size: 0.85rem; }
+        .pros li::before { content: "✓ "; color: #10b981; }
+        .cons li::before { content: "✗ "; color: #ef4444; }
+
+        .result-showcase { margin-top: 30px; padding-top: 20px; border-top: 1px dashed rgba(255,255,255,0.2); }
+        .result-title { font-size: 1rem; color: #aaa; margin-bottom: 16px; }
+        .result-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+        .result-item { background: rgba(0,0,0,0.3); border-radius: 10px; padding: 15px; }
+        .result-label { font-size: 0.8rem; color: #ccc; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏮 圣杯阴阳杯区分方案</h1>
+        <p class="subtitle">三种不同的区分方式对比</p>
+
+        <div class="options-grid">
+            <!-- 方案A：颜色区分 -->
+            <div class="option-card">
+                <div class="option-title">方案A：颜色区分</div>
+                <div class="preview-area">
+                    <div class="cups-row">
+                        <div class="cup-group">
+                            <svg viewBox="0 0 60 100" width="60" height="100">
+                                <defs>
+                                    <linearGradient id="yangGradA" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stopColor="#dc2626" />
+                                        <stop offset="100%" stopColor="#7f1d1d" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M 30 5 Q 5 35 30 65 Q 35 35 30 5" fill="url(#yangGradA)" stroke="#450a0a" strokeWidth="2"/>
+                                <path d="M 12 25 Q 22 22 32 25" fill="none" stroke="#991b1b" strokeWidth="1" opacity="0.5"/>
+                                <path d="M 15 40 Q 22 37 29 40" fill="none" stroke="#991b1b" strokeWidth="1" opacity="0.5"/>
+                            </svg>
+                            <div class="cup-label">阳杯（凸）</div>
+                        </div>
+                        <div class="cup-group">
+                            <svg viewBox="0 0 60 100" width="60" height="100">
+                                <defs>
+                                    <linearGradient id="yinGradA" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stopColor="#374151" />
+                                        <stop offset="100%" stopColor="#111827" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M 30 5 Q 5 35 30 65 Q 35 35 30 5" fill="url(#yinGradA)" stroke="#020617" strokeWidth="2"/>
+                            </svg>
+                            <div class="cup-label">阴杯（平）</div>
+                        </div>
+                    </div>
+
+                    <div class="result-showcase">
+                        <div class="result-title">结果展示：</div>
+                        <div class="result-grid">
+                            <div class="result-item">
+                                <div class="result-label">圣杯（吉）</div>
+                                <div style="display: flex; justify-content: center; gap: 10px;">
+                                    <svg viewBox="0 0 60 100" width="40" height="67">
+                                        <linearGradient id="yangSmallA" x1="0%" y1="0%" x2="0%" y2="100%">
+                                            <stop offset="0%" stopColor="#dc2626" />
+                                            <stop offset="100%" stopColor="#7f1d1d" />
+                                        </linearGradient>
+                                        <path d="M 30 5 Q 5 35 30 65 Q 35 35 30 5" fill="url(#yangSmallA)" stroke="#450a0a" strokeWidth="1.5"/>
+                                    </svg>
+                                    <svg viewBox="0 0 60 100" width="40" height="67" style="transform: scaleX(-1);">
+                                        <linearGradient id="yinSmallA" x1="0%" y1="0%" x2="0%" y2="100%">
+                                            <stop offset="0%" stopColor="#374151" />
+                                            <stop offset="100%" stopColor="#111827" />
+                                        </linearGradient>
+                                        <path d="M 30 5 Q 5 35 30 65 Q 35 35 30 5" fill="url(#yinSmallA)" stroke="#020617" strokeWidth="1.5"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-label">阳杯（平）</div>
+                                <div style="display: flex; justify-content: center; gap: 10px;">
+                                    <svg viewBox="0 0 60 100" width="40" height="67">
+                                        <path d="M 30 5 Q 5 35 30 65 Q 35 35 30 5" fill="url(#yangSmallA)" stroke="#450a0a" strokeWidth="1.5"/>
+                                    </svg>
+                                    <svg viewBox="0 0 60 100" width="40" height="67" style="transform: scaleX(-1);">
+                                        <path d="M 30 5 Q 5 35 30 65 Q 35 35 30 5" fill="url(#yangSmallA)" stroke="#450a0a" strokeWidth="1.5"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-label">阴杯（凶）</div>
+                                <div style="display: flex; justify-content: center; gap: 10px;">
+                                    <svg viewBox="0 0 60 100" width="40" height="67">
+                                        <path d="M 30 5 Q 5 35 30 65 Q 35 35 30 5" fill="url(#yinSmallA)" stroke="#020617" strokeWidth="1.5"/>
+                                    </svg>
+                                    <svg viewBox="0 0 60 100" width="40" height="67" style="transform: scaleX(-1);">
+                                        <path d="M 30 5 Q 5 35 30 65 Q 35 35 30 5" fill="url(#yinSmallA)" stroke="#020617" strokeWidth="1.5"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="option-desc"><strong>阳杯</strong>：红色 + 木纹<br><strong>阴杯</strong>：黑色/深灰色</p>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>优点</h4>
+                        <ul>
+                            <li>一目了然，最易理解</li>
+                            <li>视觉对比强烈</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>缺点</h4>
+                        <ul>
+                            <li>缺少传统质感</li>
+                            <li>颜色差异可能太大</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 方案B：纹理区分 -->
+            <div class="option-card">
+                <div class="option-title">方案B：纹理/立体感区分</div>
+                <div class="preview-area">
+                    <div class="cups-row">
+                        <div class="cup-group">
+                            <svg viewBox="0 0 60 100" width="60" height="100">
+                                <defs>
+                                    <linearGradient id="yangGradB" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stopColor="#dc2626" />
+                                        <stop offset="100%" stopColor="#7f1d1d" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M 30 5 Q 5 35 30 65 Q 35 35 30 5" fill="url(#yangGradB)" stroke="#450a0a" strokeWidth="2"/>
+                                <path d="M 12 25 Q 22 22 32 25" fill="none" stroke="#991b1b" strokeWidth="1" opacity="0.5"/>
+                                <path d="M 15 40 Q 22 37 29 40" fill="none" stroke="#991b1b" strokeWidth="1" opacity="0.5"/>
+                                <ellipse cx="25" cy="30" rx="4" ry="2" fill="rgba(255,255,255,0.3)"/>
+                            </svg>
+                            <div class="cup-label">阳杯（凸）</div>
+                        </div>
+                        <div class="cup-group">
+                            <svg viewBox="0 0 60 100" width="60" height="100">
+                                <defs>
+                                    <linearGradient id="yinGradB" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stopColor="#b91c1c" />
+                                        <stop offset="100%" stopColor="#6b1010" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M 30 8 Q 8 35 30 62 Q 32 35 30 8" fill="url(#yinGradB)" stroke="#450a0a" strokeWidth="2"/>
+                                <path d="M 30 5 Q 5 35 30 65 Q 35 35 30 5" fill="none" stroke="#450a0a" strokeWidth="1" stroke-dasharray="2,2" opacity="0.3"/>
+                            </svg>
+                            <div class="cup-label">阴杯（平/凹）</div>
+                        </div>
+                    </div>
+
+                    <div class="result-showcase">
+                        <div class="result-title">结果展示：</div>
+                        <div class="result-grid">
+                            <div class="result-item">
+                                <div class="result-label">圣杯（吉）</div>
+                                <div style="display: flex; justify-content: center; gap: 10px;">
+                                    <svg viewBox="0 0 60 100" width="40" height="67">
+                                        <linearGradient id="yangSmallB" x1="0%" y1="0%" x2="0%" y2="100%">
+                                            <stop offset="0%" stopColor="#dc2626" />
+                                            <stop offset="100%" stopColor="#7f1d1d" />
+                                        </linearGradient>
+                                        <path d="M 30 5 Q 5 35 30 65 Q 35 35 30 5" fill="url(#yangSmallB)" stroke="#450a0a" strokeWidth="1.5"/>
+                                        <path d="M 12 25 Q 22 22 32 25" fill="none" stroke="#991b1b" strokeWidth="0.8" opacity="0.5"/>
+                                    </svg>
+                                    <svg viewBox="0 0 60 100" width="40" height="67" style="transform: scaleX(-1);">
+                                        <linearGradient id="yinSmallB" x1="0%" y1="0%" x2="0%" y2="100%">
+                                            <stop offset="0%" stopColor="#b91c1c" />
+                                            <stop offset="100%" stopColor="#6b1010" />
+                                        </linearGradient>
+                                        <path d="M 30 8 Q 8 35 30 62 Q 32 35 30 8" fill="url(#yinSmallB)" stroke="#450a0a" strokeWidth="1.5"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-label">阳杯（平）</div>
+                                <div style="display: flex; justify-content: center; gap: 10px;">
+                                    <svg viewBox="0 0 60 100" width="40" height="67">
+                                        <path d="M 30 5 Q 5 35 30 65 Q 35 35 30 5" fill="url(#yangSmallB)" stroke="#450a0a" strokeWidth="1.5"/>
+                                        <path d="M 12 25 Q 22 22 32 25" fill="none" stroke="#991b1b" strokeWidth="0.8" opacity="0.5"/>
+                                    </svg>
+                                    <svg viewBox="0 0 60 100" width="40" height="67" style="transform: scaleX(-1);">
+                                        <path d="M 30 5 Q 5 35 30 65 Q 35 35 30 5" fill="url(#yangSmallB)" stroke="#450a0a" strokeWidth="1.5"/>
+                                        <path d="M 12 25 Q 22 22 32 25" fill="none" stroke="#991b1b" strokeWidth="0.8" opacity="0.5"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-label">阴杯（凶）</div>
+                                <div style="display: flex; justify-content: center; gap: 10px;">
+                                    <svg viewBox="0 0 60 100" width="40" height="67">
+                                        <path d="M 30 8 Q 8 35 30 62 Q 32 35 30 8" fill="url(#yinSmallB)" stroke="#450a0a" strokeWidth="1.5"/>
+                                    </svg>
+                                    <svg viewBox="0 0 60 100" width="40" height="67" style="transform: scaleX(-1);">
+                                        <path d="M 30 8 Q 8 35 30 62 Q 32 35 30 8" fill="url(#yinSmallB)" stroke="#450a0a" strokeWidth="1.5"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="option-desc"><strong>阳杯</strong>：红色 + 凸起 + 木纹 + 高光<br><strong>阴杯</strong>：深红色 + 扁平/内凹 + 简洁</p>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>优点</h4>
+                        <ul>
+                            <li>接近实物质感</li>
+                            <li>视觉统一和谐</li>
+                            <li>有传统韵味</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>缺点</h4>
+                        <ul>
+                            <li>区分度不如颜色明显</li>
+                            <li>小尺寸下可能看不清</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 方案C：混合区分（推荐） -->
+            <div class="option-card recommended">
+                <div class="option-badge">推荐</div>
+                <div class="option-title">方案C：混合区分</div>
+                <div class="preview-area">
+                    <div class="cups-row">
+                        <div class="cup-group">
+                            <svg viewBox="0 0 60 100" width="60" height="100">
+                                <defs>
+                                    <linearGradient id="yangGradC" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stopColor="#ef4444" />
+                                        <stop offset="100%" stopColor="#991b1b" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M 30 5 Q 5 35 30 65 Q 35 35 30 5" fill="url(#yangGradC)" stroke="#450a0a" strokeWidth="2"/>
+                                <path d="M 12 25 Q 22 22 32 25" fill="none" stroke="#b91c1c" strokeWidth="1" opacity="0.6"/>
+                                <path d="M 15 40 Q 22 37 29 40" fill="none" stroke="#b91c1c" strokeWidth="1" opacity="0.6"/>
+                                <ellipse cx="25" cy="30" rx="5" ry="2.5" fill="rgba(255,255,255,0.35)"/>
+                            </svg>
+                            <div class="cup-label">阳杯（凸）</div>
+                        </div>
+                        <div class="cup-group">
+                            <svg viewBox="0 0 60 100" width="60" height="100">
+                                <defs>
+                                    <linearGradient id="yinGradC" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stopColor="#78350f" />
+                                        <stop offset="100%" stopColor="#422006" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M 30 8 Q 8 35 30 62 Q 32 35 30 8" fill="url(#yinGradC)" stroke="#1c0a00" strokeWidth="2"/>
+                            </svg>
+                            <div class="cup-label">阴杯（平）</div>
+                        </div>
+                    </div>
+
+                    <div class="result-showcase">
+                        <div class="result-title">结果展示：</div>
+                        <div class="result-grid">
+                            <div class="result-item">
+                                <div class="result-label">圣杯（吉）</div>
+                                <div style="display: flex; justify-content: center; gap: 10px;">
+                                    <svg viewBox="0 0 60 100" width="40" height="67">
+                                        <linearGradient id="yangSmallC" x1="0%" y1="0%" x2="0%" y2="100%">
+                                            <stop offset="0%" stopColor="#ef4444" />
+                                            <stop offset="100%" stopColor="#991b1b" />
+                                        </linearGradient>
+                                        <path d="M 30 5 Q 5 35 30 65 Q 35 35 30 5" fill="url(#yangSmallC)" stroke="#450a0a" strokeWidth="1.5"/>
+                                        <path d="M 12 25 Q 22 22 32 25" fill="none" stroke="#b91c1c" strokeWidth="0.8" opacity="0.5"/>
+                                    </svg>
+                                    <svg viewBox="0 0 60 100" width="40" height="67" style="transform: scaleX(-1);">
+                                        <linearGradient id="yinSmallC" x1="0%" y1="0%" x2="0%" y2="100%">
+                                            <stop offset="0%" stopColor="#78350f" />
+                                            <stop offset="100%" stopColor="#422006" />
+                                        </linearGradient>
+                                        <path d="M 30 8 Q 8 35 30 62 Q 32 35 30 8" fill="url(#yinSmallC)" stroke="#1c0a00" strokeWidth="1.5"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-label">阳杯（平）</div>
+                                <div style="display: flex; justify-content: center； gap: 10px;">
+                                    <svg viewBox="0 0 60 100" width="40" height="67">
+                                        <path d="M 30 5 Q 5 35 30 65 Q 35 35 30 5" fill="url(#yangSmallC)" stroke="#450a0a" strokeWidth="1.5"/>
+                                        <path d="M 12 25 Q 22 22 32 25" fill="none" stroke="#b91c1c" strokeWidth="0.8" opacity="0.5"/>
+                                    </svg>
+                                    <svg viewBox="0 0 60 100" width="40" height="67" style="transform: scaleX(-1);">
+                                        <path d="M 30 5 Q 5 35 30 65 Q 35 35 30 5" fill="url(#yangSmallC)" stroke="#450a0a" strokeWidth="1.5"/>
+                                        <path d="M 12 25 Q 22 22 32 25" fill="none" stroke="#b91c1c" strokeWidth="0.8" opacity="0.5"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-label">阴杯（凶）</div>
+                                <div style="display: flex; justify-content: center; gap: 10px;">
+                                    <svg viewBox="0 0 60 100" width="40" height="67">
+                                        <path d="M 30 8 Q 8 35 30 62 Q 32 35 30 8" fill="url(#yinSmallC)" stroke="#1c0a00" strokeWidth="1.5"/>
+                                    </svg>
+                                    <svg viewBox="0 0 60 100" width="40" height="67" style="transform: scaleX(-1);">
+                                        <path d="M 30 8 Q 8 35 30 62 Q 32 35 30 8" fill="url(#yinSmallC)" stroke="#1c0a0a" strokeWidth="1.5"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="option-desc"><strong>阳杯</strong>：亮红色 + 凸起 + 木纹 + 高光<br><strong>阴杯</strong>：深木色 + 扁平/内凹</p>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>优点</h4>
+                        <ul>
+                            <li>既有颜色区分又有质感</li>
+                            <li>阴阳调和，符合传统</li>
+                            <li>视觉层次丰富</li>
+                            <li>辨识度高</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>缺点</h4>
+                        <ul>
+                            <li>设计稍复杂</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

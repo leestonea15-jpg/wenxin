@@ -1,0 +1,29 @@
+name: 记忆功能测试
+description: 测试记忆检索和上下文理解功能
+
+test_cases:
+  - id: memory_1
+    name: 追问时记忆问题
+    question: 那我应该怎么做才能把握这个机会呢？
+    stick:
+      id: 1
+      level: 上上签
+      title: 姜太公遇文王
+    history:
+      - role: user
+        content: 我最近想换工作，想看看运势如何
+      - role: assistant
+        content: 这是一支上上签，姜太公遇文王。意味着时来运转，你会遇到贵人相助，换工作会很顺利。
+
+  - id: memory_2
+    name: 同类问题记忆
+    question: 我也想问问感情方面的事
+    stick:
+      id: 1
+      level: 上上签
+      title: 姜太公遇文王
+    history:
+      - role: user
+        content: 我最近想换工作，想看看运势如何
+      - role: assistant
+        content: 这是一支上上签，意味着事业运很好。

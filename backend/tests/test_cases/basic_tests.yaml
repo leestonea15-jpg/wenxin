@@ -1,0 +1,36 @@
+name: 基础功能测试
+description: 测试基本解读功能
+
+test_cases:
+  - id: basic_1
+    name: 简单问题解读
+    question: 我最近想换工作，想看看运势如何
+    stick:
+      id: 1
+      level: 上上签
+      title: 姜太公遇文王
+      poem: 时来时去自如通，万水千山总是通。忽遇太君来相引，那时相引得亨通。
+      story: 姜太公钓鱼等待周文王，后被重用
+      meaning: 时来运转，贵人相助，事业有成
+
+  - id: basic_2
+    name: 感情问题
+    question: 我和对象最近闹矛盾，想看看我们的缘分
+    stick:
+      id: 23
+      level: 中签
+      title: 韩文公遇雪
+      poem: 时运未来莫强求，且把尘心暂且收。忽有贵人来相引，那时相引上瀛洲。
+      story: 韩愈被贬，途中遇雪
+      meaning: 暂时困境，需要等待时机
+
+  - id: basic_3
+    name: 学业问题
+    question: 我准备考研，想看看能否顺利
+    stick:
+      id: 58
+      level: 上签
+      title: 范进中举
+      poem: 金榜题名是此年，文章得意人钦羡。此去定知天有意，名利双全福自至。
+      story: 范进中举
+      meaning: 学业有成，金榜题名

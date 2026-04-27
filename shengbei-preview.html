@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>圣杯图标预览</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #fef3c7, #fde68a);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+    h1 { color: #92400e; margin-bottom: 30px; font-size: 28px; }
+    .section {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .title { color: #57534e; font-size: 14px; margin-bottom: 20px; letter-spacing: 1px; }
+    .card {
+      width: 300px; height: 200px;
+      background: linear-gradient(135deg, #fff7ed, #fecaca);
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto;
+    }
+    .gesture {
+      width: 400px; height: 300px;
+      background: linear-gradient(135deg, #3d1515, #5a2020);
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto;
+      position: relative;
+    }
+    .hint {
+      position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+      color: rgba(255,255,255,0.8); font-size: 14px;
+    }
+    .compare { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; }
+    .item { text-align: center; }
+    .label { color: #78716c; font-size: 12px; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>圣杯图标预览</h1>
+
+  <div class="section">
+    <div class="title">朱红色半月牙（月牙尖相对）— 凸面亮红，平面暗红</div>
+    <div class="compare">
+      <div class="item">
+        <div class="card">
+          <svg width="96" height="96" viewBox="0 0 160 120">
+            <defs>
+              <!-- 凸面：明亮朱红 -->
+              <linearGradient id="convex" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#ff4040"/>
+                <stop offset="100%" stopColor="#e82020"/>
+              </linearGradient>
+              <!-- 平面：深红 -->
+              <linearGradient id="flat" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#c03030"/>
+                <stop offset="100%" stopColor="#9a1515"/>
+              </linearGradient>
+              <!-- 轮廓线 -->
+              <linearGradient id="outline" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#d63030"/>
+                <stop offset="100%" stopColor="#a01010"/>
+              </linearGradient>
+            </defs>
+
+            <!-- 左杯 -->
+            <!-- 凸面（外大弧） - 亮红色 -->
+            <path
+              d="M 15 55
+                 C 15 15, 55 5, 75 30
+                 C 60 25, 35 28, 15 55 Z"
+              fill="url(#convex)"
+              stroke="url(#outline)" stroke-width="1.5"
+            />
+            <!-- 平面（内小弧） - 深红色 -->
+            <path
+              d="M 15 55
+                 C 30 45, 50 38, 70 33
+                 C 55 30, 35 33, 15 55 Z"
+              fill="url(#flat)"
+              stroke="url(#outline)" stroke-width="1"
+            />
+
+            <!-- 右杯（镜像） -->
+            <!-- 凸面（外大弧） - 亮红色 -->
+            <path
+              d="M 145 65
+                 C 145 105, 105 115, 85 90
+                 C 100 95, 125 92, 145 65 Z"
+              fill="url(#convex)"
+              stroke="url(#outline)" stroke-width="1.5"
+            />
+            <!-- 平面（内小弧） - 深红色 -->
+            <path
+              d="M 145 65
+                 C 130 55, 110 62, 90 67
+                 C 105 70, 125 67, 145 65 Z"
+              fill="url(#flat)"
+              stroke="url(#outline)" stroke-width="1"
+            />
+          </svg>
+        </div>
+        <div class="label">卡片尺寸 (96px)</div>
+      </div>
+
+      <div class="item">
+        <div class="gesture">
+          <svg width="280" height="280" viewBox="0 0 160 120">
+            <defs>
+              <linearGradient id="convex2" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#ff4040"/>
+                <stop offset="100%" stopColor="#e82020"/>
+              </linearGradient>
+              <linearGradient id="flat2" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#c03030"/>
+                <stop offset="100%" stopColor="#9a1515"/>
+              </linearGradient>
+              <linearGradient id="outline2" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#d63030"/>
+                <stop offset="100%" stopColor="#a01010"/>
+              </linearGradient>
+            </defs>
+
+            <!-- 左杯 -->
+            <path
+              d="M 15 55
+                 C 15 15, 55 5, 75 30
+                 C 60 25, 35 28, 15 55 Z"
+              fill="url(#convex2)"
+              stroke="url(#outline2)" stroke-width="1.5"
+            />
+            <path
+              d="M 15 55
+                 C 30 45, 50 38, 70 33
+                 C 55 30, 35 33, 15 55 Z"
+              fill="url(#flat2)"
+              stroke="url(#outline2)" stroke-width="1"
+            />
+
+            <!-- 右杯 -->
+            <path
+              d="M 145 65
+                 C 145 105, 105 115, 85 90
+                 C 100 95, 125 92, 145 65 Z"
+              fill="url(#convex2)"
+              stroke="url(#outline2)" stroke-width="1.5"
+            />
+            <path
+              d="M 145 65
+                 C 130 55, 110 62, 90 67
+                 C 105 70, 125 67, 145 65 Z"
+              fill="url(#flat2)"
+              stroke="url(#outline2)" stroke-width="1"
+            />
+          </svg>
+          <div class="hint">请做「抛圣杯」手势</div>
+        </div>
+        <div class="label">手势测算尺寸 (280px)</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="color:#78716c; font-size:14px; text-align:center; max-width:600px;">
+    <p>凸面：亮朱红色 #ff4040 | 平面：深红色 #c03030</p>
+    <p>通过颜色深浅区分两面，整体均为红色调</p>
+  </div>
+</body>
+</html>
