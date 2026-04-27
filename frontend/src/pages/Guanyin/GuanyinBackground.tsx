@@ -12,15 +12,15 @@ interface GuanyinBackgroundProps {
 
 // #87CEEB 天蓝色背景粒子 - 越近越亮
 const DiffusionParticles = ({
-  waveDirection = 0,
-  isWaving = false,
-  waveComplete = false,
+  _waveDirection = 0,
+  _isWaving = false,
+  _waveComplete = false,
   mode = 'idle',
   handPosition
 }: {
-  waveDirection?: number
-  isWaving?: boolean
-  waveComplete?: boolean
+  _waveDirection?: number
+  _isWaving?: boolean
+  _waveComplete?: boolean
   mode?: string
   handPosition?: { x: number; y: number } | null
 }) => {
@@ -147,17 +147,17 @@ const DiffusionParticles = ({
 
 export const GuanyinBackground = ({
   handPosition,
-  waveDirection = 0,
-  isWaving = false,
-  waveComplete = false,
+  waveDirection: _waveDirection = 0,
+  isWaving: _isWaving = false,
+  waveComplete: _waveComplete = false,
   mode = 'idle',
 }: GuanyinBackgroundProps) => {
   return (
     <group>
       <DiffusionParticles
-        waveDirection={waveDirection}
-        isWaving={isWaving}
-        waveComplete={waveComplete}
+        _waveDirection={_waveDirection}
+        _isWaving={_isWaving}
+        _waveComplete={_waveComplete}
         mode={mode}
         handPosition={handPosition}
       />

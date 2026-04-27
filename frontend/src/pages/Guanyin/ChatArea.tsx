@@ -89,45 +89,6 @@ const SUGGESTED_QUESTIONS = [
   "这个签的贵人运如何？",
 ]
 
-// 思考过程展示组件
-const ThinkingProcess = ({ thinkingProcess }: { thinkingProcess?: string }) => {
-  const [isExpanded, setIsExpanded] = useState(false)
-
-  if (!thinkingProcess || thinkingProcess.trim() === '') return null
-
-  return (
-    <div className="mt-3 border-t border-gray-600 pt-2">
-      <button
-        onClick={() => setIsExpanded(!isExpanded)}
-        className="flex items-center gap-2 text-xs text-gray-400 hover:text-gray-200 transition-colors"
-      >
-        <svg
-          className={`w-3 h-3 transition-transform ${isExpanded ? 'rotate-90' : ''}`}
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-        </svg>
-        <span>🤔 AI 思考过程</span>
-      </button>
-      <AnimatePresence>
-        {isExpanded && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="overflow-hidden"
-          >
-            <div className="mt-2 p-2 bg-gray-800/50 rounded-lg text-xs text-gray-400 whitespace-pre-line font-mono">
-              {thinkingProcess}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  )
-}
 
 // 简单文本显示组件 - 作为备选方案
 const SimpleText = ({ text }: { text: string }) => {

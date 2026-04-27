@@ -3,6 +3,34 @@ import { Hands } from '@mediapipe/hands'
 
 export type GuanyinGestureType = 'push_open' | 'wave' | 'pull_in' | 'draw' | null
 
+interface GestureState {
+  lastHandSize: number
+  pushOpenInitialized: boolean
+  lastX: number
+  waveDirection: number
+  waveCount: number
+  lastWaveTime: number
+  waveInitialized: boolean
+  lastZ: number
+  pullInInitialized: boolean
+  lastDirectionChangeTime?: number
+  lastActiveTime?: number
+  isWavingInternal?: boolean
+  hasWavedOnce?: boolean
+  isCurrentlyMoving?: boolean
+  consecutiveStillFrames?: number
+  drawingInitialized?: boolean
+  drawingLastX?: number
+  drawingWaveCount?: number
+  drawingLastActiveTime?: number
+  drawingIsWaving?: boolean
+  drawingHasWaved?: boolean
+  drawingStillFrames?: number
+  drawingWaveDirection?: number
+  drawingHandInCenter?: boolean
+  drawingHandWasInCenter?: boolean
+}
+
 interface UseGuanyinGestureOptions {
   enabled: boolean
   onGestureDetected?: (gesture: GuanyinGestureType) => void
@@ -45,7 +73,7 @@ export const useGuanyinGesture = ({
   const modeRef = useRef(mode) // 用 ref 存储最新的 mode，避免闭包陷阱 // 记录上一个模式
 
   // 手势检测状态
-  const gestureStateRef = useRef<any>({
+  const gestureStateRef = useRef<GestureState>({
     // 手掌推开检测
     lastHandSize: 0,
     pushOpenInitialized: false,

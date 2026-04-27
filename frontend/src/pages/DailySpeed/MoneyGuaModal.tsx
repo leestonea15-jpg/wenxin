@@ -144,13 +144,6 @@ const MoneyGuaModal = ({ isOpen, onClose, onComplete }: MoneyGuaModalProps) => {
     // 摄像头会在GestureCamera的onVideoReady回调中启动
   }
 
-  // 手势模式的测算
-  const handleGestureToss = async () => {
-    console.log('[MoneyGuaModal] Manual gesture toss')
-    setMode('gesture_detecting')
-    await toss()
-    setMode('animating')
-  }
 
   // 直接开始函数
   const handleDirectStart = async () => {

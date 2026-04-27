@@ -17,7 +17,7 @@ import { guanyinApi } from '../services/api'
 // 新Hook只是包装了独立的Agent状态，但仍然调用相同的后端API
 
 interface UseGuanyinAgentOptions {
-  onNeedAuth?: () => void
+  _onNeedAuth?: () => void
   userId?: string | null
   useLegacy?: boolean  // 零影响：默认true，继续用旧实现逻辑
 }
@@ -36,7 +36,7 @@ const agentStateToPageState: Record<AgentState, GuanyinPageState> = {
 }
 
 export function useGuanyinAgent({
-  onNeedAuth,
+  _onNeedAuth,
   userId,
   useLegacy = true,
 }: UseGuanyinAgentOptions = {}) {

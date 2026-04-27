@@ -159,13 +159,6 @@ const ShengbeiModal = ({ isOpen, onClose, onComplete }: ShengbeiModalProps) => {
     // 摄像头会在GestureCamera的onVideoReady回调中启动
   }
 
-  // 手势模式的测算
-  const handleGestureToss = async () => {
-    console.log('[ShengbeiModal] Manual gesture toss')
-    setMode('gesture_detecting')
-    await toss(1)
-    setMode('animating')
-  }
 
   // 直接开始函数
   const handleDirectStart = async () => {

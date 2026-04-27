@@ -232,7 +232,7 @@ const PotHighlightLayer = () => {
   )
 }
 
-export const GuanyinPot = ({ mode, isShaking = false, isWaving = false, waveDirection = 0, waveComplete = false, handPosition, handIsUp = false }: GuanyinPotProps) => {
+export const GuanyinPot = ({ mode, isShaking: _isShaking = false, isWaving: _isWaving = false, waveDirection: _waveDirection = 0, waveComplete: _waveComplete = false, handPosition, handIsUp = false }: GuanyinPotProps) => {
   const groupRef = useRef<THREE.Group>(null)
   const targetRotationRef = useRef(0) // 目标旋转角度
   const currentRotationRef = useRef(0) // 当前显示的旋转角度
