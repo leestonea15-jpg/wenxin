@@ -4,23 +4,14 @@ import * as THREE from 'three'
 
 interface GuanyinBackgroundProps {
   handPosition: { x: number; y: number } | null
-  waveDirection?: number
-  isWaving?: boolean
-  waveComplete?: boolean
   mode?: string
 }
 
 // #87CEEB 天蓝色背景粒子 - 越近越亮
 const DiffusionParticles = ({
-  _waveDirection = 0,
-  _isWaving = false,
-  _waveComplete = false,
   mode = 'idle',
   handPosition
 }: {
-  _waveDirection?: number
-  _isWaving?: boolean
-  _waveComplete?: boolean
   mode?: string
   handPosition?: { x: number; y: number } | null
 }) => {
@@ -147,17 +138,11 @@ const DiffusionParticles = ({
 
 export const GuanyinBackground = ({
   handPosition,
-  waveDirection: _waveDirection = 0,
-  isWaving: _isWaving = false,
-  waveComplete: _waveComplete = false,
   mode = 'idle',
 }: GuanyinBackgroundProps) => {
   return (
     <group>
       <DiffusionParticles
-        _waveDirection={_waveDirection}
-        _isWaving={_isWaving}
-        _waveComplete={_waveComplete}
         mode={mode}
         handPosition={handPosition}
       />

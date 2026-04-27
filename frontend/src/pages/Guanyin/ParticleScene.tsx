@@ -9,9 +9,7 @@ import { StickBurstEffect } from './GuanyinEffects'
 interface ParticleSceneProps {
   mode: 'idle' | 'gesture' | 'mouse' | 'drawing' | 'result'
   handPosition: { x: number; y: number } | null
-  waveDirection?: number
   isWaving?: boolean
-  waveComplete?: boolean
   handIsUp?: boolean
   stickLevel?: string | null
   onMouseLongPress?: () => void
@@ -21,16 +19,14 @@ interface ParticleSceneProps {
 export const ParticleScene = ({
   mode,
   handPosition,
-  waveDirection = 0,
   isWaving = false,
-  waveComplete = false,
   handIsUp = false,
   // @ts-ignore: stickLevel is kept for backward compatibility but not used
   stickLevel,
   onMouseLongPress,
   onMouseRelease,
 }: ParticleSceneProps) => {
-  console.log('ParticleScene - waveDirection:', waveDirection, 'isWaving:', isWaving, 'waveComplete:', waveComplete, 'mode:', mode, 'handIsUp:', handIsUp)
+  console.log('ParticleScene - isWaving:', isWaving, 'mode:', mode, 'handIsUp:', handIsUp)
   const [isPressing, setIsPressing] = useState(false)
   const [burstActive, setBurstActive] = useState(false)
   const prevIsWavingRef = useRef(false)
@@ -110,15 +106,12 @@ export const ParticleScene = ({
 
         <GuanyinBackground
           handPosition={handPosition}
-          waveDirection={waveDirection}
-          isWaving={isWaving}
-          waveComplete={waveComplete}
           mode={mode}
         />
 
         <group position={[0, 0, -0.3]}>
-          <GuanyinPot mode={mode} isWaving={isWaving} waveDirection={waveDirection} waveComplete={waveComplete} handPosition={handPosition} handIsUp={handIsUp} />
-          <GuanyinSticks mode={mode} isWaving={isWaving} waveDirection={waveDirection} waveComplete={waveComplete} handPosition={handPosition} handIsUp={handIsUp} />
+          <GuanyinPot mode={mode} handPosition={handPosition} handIsUp={handIsUp} />
+          <GuanyinSticks mode={mode} isWaving={isWaving} handPosition={handPosition} handIsUp={handIsUp} />
         </group>
 
         <StickBurstEffect active={burstActive && (mode === 'gesture' || mode === 'drawing' || mode === 'result')} />

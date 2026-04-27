@@ -6,8 +6,6 @@ interface GuanyinSticksProps {
   mode: string
   isShaking?: boolean
   isWaving?: boolean
-  waveDirection?: number
-  waveComplete?: boolean
   handPosition?: { x: number; y: number } | null
   handIsUp?: boolean
   selectedStickIndex?: number | null
@@ -183,8 +181,6 @@ export const GuanyinSticks = ({
   mode,
   isShaking = false,
   isWaving = false,
-  waveDirection: _waveDirection = 0,
-  waveComplete: _waveComplete = false,
   handPosition,
   handIsUp = false,
   selectedStickIndex = null,

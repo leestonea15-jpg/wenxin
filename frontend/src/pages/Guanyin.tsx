@@ -50,9 +50,7 @@ export const Guanyin = () => {
     startCamera,
     stopCamera,
     videoRef,
-    waveDirection,
     isWaving,
-    waveComplete,
     handIsUp,
   } = useGuanyinGesture({
     enabled: pageState === GUANYIN_PAGE_STATES.IDLE ||
@@ -130,9 +128,7 @@ export const Guanyin = () => {
         <ParticleScene
           mode={getParticleMode()}
           handPosition={handPosition}
-          waveDirection={waveDirection}
           isWaving={isWaving}
-          waveComplete={waveComplete}
           handIsUp={handIsUp}
           stickLevel={selectedStick?.level || null}
           onMouseLongPress={onMouseLongPress}
